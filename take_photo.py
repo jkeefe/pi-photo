@@ -9,7 +9,7 @@ from google.cloud import vision
 
 image_file = "./photos/latest.jpg"
 
-os.system("raspistill -t 1000 -hf -vf -o " + image_file)
+os.system("raspistill -t 500 -hf -o " + image_file)
 
 # Instantiates a client
 vision_client = vision.Client()
@@ -32,7 +32,7 @@ label_list = []
 print('Labels:')
 for label in labels:
     print(label.description)
-    label_list.append(label)
+    label_list.append(label.description)
     
 print(label_list)
 
