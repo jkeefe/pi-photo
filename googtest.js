@@ -18,7 +18,7 @@
 const Vision = require('@google-cloud/vision');
 
 // Your Google Cloud Platform project ID
-const projectId = 'YOUR_PROJECT_ID';
+const projectId = 'vision-play-165021';
 
 // Instantiates a client
 const visionClient = Vision({
