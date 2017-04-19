@@ -52,7 +52,7 @@ with open(json_file, 'wb') as outfile:
 
 # upload that file to s3
 s3.upload_file(
-    './data/vision_test.json', 'media.johnkeefe.net', 'vision.json',
+    json_file, 'media.johnkeefe.net', 'vision.json',
     ExtraArgs={'ACL': 'public-read'}
 )
 
