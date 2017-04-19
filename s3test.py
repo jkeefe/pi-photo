@@ -8,7 +8,7 @@ for bucket in s3.buckets.all():
     print(bucket.name)
 
 s3.upload_file(
-    './data/vision_test.json', 'media.johnkeefe.net', 'pi-3-vision-bot',
+    './data/vision_test.json', 'media.johnkeefe.net', 'default',
     ExtraArgs={'ACL': 'public-read'}
 )
 

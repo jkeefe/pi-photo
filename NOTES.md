@@ -157,7 +157,11 @@ Info here: https://boto3.readthedocs.io/en/latest/guide/quickstart.html
 `aws configure`
 
 Entered the Access and Secret keys above
-Use region us-east-1 for lambda/Alexa
+Use region `us-east-1` for lambda/Alexa
+Used `json` format
+
+Also went into `~/.aws/credentials` and copied the same creds under the key name `pi-3-vision-bot`
+
 
 
 
