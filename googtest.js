@@ -21,11 +21,6 @@ var vision = require('@google-cloud/vision')({
   keyFilename: '/home/pi/keys/vision-play-40d1a084e616.json'
 });
 
-vision.auth.getApplicationDefault(function(err, authClient) {
-   if (err) {
-     return cb(err);
-   }});
-
 
 // The name of the image file to annotate
 var fileName = './photos/test_truck.jpg';
