@@ -22,7 +22,8 @@ const projectId = 'vision-play-165021';
 
 // Instantiates a client
 const visionClient = Vision({
-  projectId: projectId
+  projectId: projectId,
+  keyFilename: '../keys/vision-play-40d1a084e616.json'
 });
 
 // The name of the image file to annotate
