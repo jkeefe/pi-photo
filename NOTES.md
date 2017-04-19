@@ -40,3 +40,40 @@ while True:
            GPIO.output(12, False)
 ```
 
+## Photo testing
+
+Basic instructions:
+https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md
+
+Full documentation:
+https://www.raspberrypi.org/documentation/hardware/camera/README.md
+
+`raspistill -t 1000 -hf -vf -o test.jpg`
+
+## Google Vision API setup
+
+Went through this long checklist:
+https://cloud.google.com/vision/docs/quickstart#set_up_a_google_cloud_vision_api_project
+
+Then set up the python sdk here:
+https://cloud.google.com/vision/docs/reference/libraries#client-libraries-install-python
+
+## Pause to update raspberry pi and add anaconda
+
+`sudo apt-get update`
+`sudo apt-get-upgrade`
+
+Then info on anaconda here:
+https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b
+
+## Then back to Google install ... which also requires the SDK
+
+https://cloud.google.com/sdk/docs/
+
+Picked Ubuntu
+Followed the instrutions
+
+at one point had to do `sudo apt-get install apt-transport-https`
+
+Sigh
+
