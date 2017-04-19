@@ -100,14 +100,10 @@ Had to remove everything in `/usr/local/lib/python2.7/dist-packages/*` so
 
 `sudo rm -rf /usr/local/lib/python2.7/dist-packages/*`
 
-Now: `sudo apt-get install python-dev`
-
-Next: `sudo pip install --upgrade google-cloud`
-
-Next: `pip install --upgrade google-api-python-client`
+** Next: `pip install --upgrade google-api-python-client`
+** Next: `sudo pip install --upgrade google-cloud`
 
 I was having a lot of X module not found ... had to go into ....
-
 Now: `sudo apt-get install python-dev`
 
 
@@ -125,6 +121,12 @@ https://cloud.google.com/vision/docs/reference/libraries#client-libraries-usage-
 
 also here:
 https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/vision/quickstart.js
+
+
+#@ GOT PYTHON WORKING
+
+Key reference:
+https://googlecloudplatform.github.io/google-cloud-python/stable/vision-usage.html
 
 
 
