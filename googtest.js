@@ -15,14 +15,13 @@
 
 // [START vision_quickstart]
 // Imports the Google Cloud client library
-var google = require('@google-cloud');
 
 var vision = require('@google-cloud/vision')({
   projectId: 'vision-play-165021',
   keyFilename: '/home/pi/keys/vision-play-40d1a084e616.json'
 });
 
-google.auth.getApplicationDefault(function(err, authClient) {
+vision.auth.getApplicationDefault(function(err, authClient) {
    if (err) {
      return cb(err);
    }});
