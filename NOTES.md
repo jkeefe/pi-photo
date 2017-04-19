@@ -73,7 +73,13 @@ https://cloud.google.com/sdk/docs/
 Picked Ubuntu
 Followed the instrutions
 
-at one point had to do `sudo apt-get install apt-transport-https`
-
 Sigh
+
+to complete next step, had to do `sudo apt-get install apt-transport-https`
+
+did: `sudo apt-get install google-cloud-sdk`
+
+NOTE: The above ^ command opens the default browser and then you have to log in with the same Google account as the whole google vision api setup. This also means you can't do this via ssh, but actually have to have a monitor and keyboard connected to the pi.
+
+OK, that worked. Then, as instructed:
 
