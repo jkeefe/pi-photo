@@ -58,19 +58,6 @@ https://cloud.google.com/vision/docs/quickstart#set_up_a_google_cloud_vision_api
 Then set up the python sdk here:
 https://cloud.google.com/vision/docs/reference/libraries#client-libraries-install-python
 
-## Pause to update raspberry pi and add anaconda
-
-`sudo apt-get update`
-`sudo apt-get upgrade`
-
-Then info on anaconda here:
-https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b
-
-
-`source activate vision`
-
-## Then back to Google install ... which also requires the SDK
-
 https://cloud.google.com/sdk/docs/
 
 Picked Ubuntu
@@ -92,9 +79,16 @@ Next: `gcloud init`
 
 Also ^ needs browser access.
 
-## Whole troubleshooting of the google-cloud module not working right in the sample code
+## Got Python Version Working
 
-While in my anaconda 2.7 activation ...
+- Trying to use Anaconda really messed me up. Deleting those notes above.
+- My attempt to try the node verision instead was thwarted by some bug / problem in the node package that won't resolve the "config" info I'm passing to it. :-/
+- So back to python on the base level of the pi, which worked.
+
+Key reference:
+https://googlecloudplatform.github.io/google-cloud-python/stable/vision-usage.html
+
+Some combination of this worked:
 
 Had to remove everything in `/usr/local/lib/python2.7/dist-packages/*` so
 
@@ -106,27 +100,65 @@ Had to remove everything in `/usr/local/lib/python2.7/dist-packages/*` so
 I was having a lot of X module not found ... had to go into ....
 Now: `sudo apt-get install python-dev`
 
+I was able to get the Pi to process the information from a photo, using the example code here:
+https://cloud.google.com/vision/docs/reference/libraries#client-libraries-install-python
 
-## Switched to NODE
+## Pi -> AWS
 
-Installed it on the pi
+My plan is to have the Pi process the image and send the relevant info to a JSON file on S3.
 
+### AWS Command-Line Interface (client-libraries-install-python)
+
+AWS CLI install described here: https://iotbytes.wordpress.com/aws-iot-cli-on-raspberry-pi/
+
+- Logged in to AWS (using my own account, fwiw)
+- Went to IAM
+- Created a new policy `AccessMediaBucket`
+```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:ListAllMyBuckets"
+                ],
+                "Resource": "arn:aws:s3:::*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:*"
+                ],
+                "Resource": "arn:aws:s3:::media.johnkeefe.net"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:*"
+                ],
+                "Resource": "arn:aws:s3:::media.johnkeefe.net/*"
+            }
+        ]
+    }
 ```
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
+- Created a new group with that policy `MediaBucketAccess`
+- Created a new user `pi-3-vision-bot` in that group
+- Got the Access and Secret keys
 
-Used this description instead:
-https://cloud.google.com/vision/docs/reference/libraries#client-libraries-usage-nodejs
+`sudo pip install awscli`
 
-also here:
-https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/vision/quickstart.js
+### AWS Python Software Development Kit (SDK)
 
+Info here: https://boto3.readthedocs.io/en/latest/guide/quickstart.html
 
-#@ GOT PYTHON WORKING
+`sudo pip install boto3`
 
-Key reference:
-https://googlecloudplatform.github.io/google-cloud-python/stable/vision-usage.html
+`aws configure`
+
+Entered the Access and Secret keys above
+Use region us-east-1 for lambda/Alexa
+
 
 
 
