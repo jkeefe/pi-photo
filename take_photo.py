@@ -4,6 +4,11 @@ import io
 import os
 import sys
 import json
+import boto3
+
+# Let's use Amazon S3
+s3 = boto3.client('s3')
+
 
 # Imports the Google Cloud client library
 from google.cloud import vision
@@ -38,7 +43,19 @@ for label in labels:
     
 print(label_list)
 
+#build the object
 data = {"labels" : label_list}
 
+# dump it to a file as json
 with open(json_file, 'wb') as outfile:
     json.dump(data, outfile)
+
+# upload that file to s3
+s3.upload_file(
+    './data/vision_test.json', 'media.johnkeefe.net', 'vision.json',
+    ExtraArgs={'ACL': 'public-read'}
+)
+
+
+
+
