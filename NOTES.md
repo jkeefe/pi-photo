@@ -61,10 +61,13 @@ https://cloud.google.com/vision/docs/reference/libraries#client-libraries-instal
 ## Pause to update raspberry pi and add anaconda
 
 `sudo apt-get update`
-`sudo apt-get-upgrade`
+`sudo apt-get upgrade`
 
 Then info on anaconda here:
 https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b
+
+
+`source activate vision`
 
 ## Then back to Google install ... which also requires the SDK
 
@@ -89,7 +92,39 @@ Next: `gcloud init`
 
 Also ^ needs browser access.
 
-Next: `pip install --upgrade google-api-python-client`
+## Whole troubleshooting of the google-cloud module not working right in the sample code
+
+While in my anaconda 2.7 activation ...
+
+Had to remove everything in `/usr/local/lib/python2.7/dist-packages/*` so
+
+`sudo rm -rf /usr/local/lib/python2.7/dist-packages/*`
+
+Now: `sudo apt-get install python-dev`
 
 Next: `sudo pip install --upgrade google-cloud`
+
+Next: `pip install --upgrade google-api-python-client`
+
+I was having a lot of X module not found ... had to go into ....
+
+Now: `sudo apt-get install python-dev`
+
+
+## Switched to NODE
+
+Installed it on the pi
+
+```
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Used this description instead:
+https://cloud.google.com/vision/docs/reference/libraries#client-libraries-usage-nodejs
+
+also here:
+https://github.com/GoogleCloudPlatform/nodejs-docs-samples/blob/master/vision/quickstart.js
+
+
 

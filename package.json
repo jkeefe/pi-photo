@@ -1,0 +1,24 @@
+{
+  "name": "pi-photo",
+  "version": "1.0.0",
+  "description": "Photo-taking code for my Raspberry Pi 3",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/vision": "^0.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkeefe/pi-photo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkeefe/pi-photo/issues"
+  },
+  "homepage": "https://github.com/jkeefe/pi-photo#readme"
+}
