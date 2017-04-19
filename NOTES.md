@@ -160,7 +160,10 @@ Entered the Access and Secret keys above
 Use region `us-east-1` for lambda/Alexa
 Used `json` format
 
-Also went into `~/.aws/credentials` and copied the same creds under the key name `pi-3-vision-bot`
+Got time difference too large error because the pi's clock wasn't set! 
+Needs to have an internet connection on startup to set it.
+
+
 
 
 

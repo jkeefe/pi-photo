@@ -15,7 +15,7 @@ GPIO.output(12, False)
 while True:
    if GPIO.input(11):
       strImage = str(image_num)
-           os.system("raspistill -t 1000 -hf -vf -o image" + strImage + ".jpg")
+           os.system("raspistill -t 1000 -hf -vf -o image" + image_file + ".jpg")
       image_num = image_num + 1
            GPIO.output(12, True)
            time.sleep(3)
