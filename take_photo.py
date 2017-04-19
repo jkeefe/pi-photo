@@ -3,11 +3,13 @@ from __future__ import absolute_import
 import io
 import os
 import sys
+import json
 
 # Imports the Google Cloud client library
 from google.cloud import vision
 
 image_file = "./photos/latest.jpg"
+json_file = "./data/vision.json"
 
 os.system("raspistill -t 500 -hf -o " + image_file)
 
@@ -36,5 +38,7 @@ for label in labels:
     
 print(label_list)
 
+data = {"labels" : label_list}
 
-
+with open(json_file, 'wb') as outfile:
+    json.dump(data, outfile)
