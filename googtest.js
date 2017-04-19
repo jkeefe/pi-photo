@@ -15,22 +15,24 @@
 
 // [START vision_quickstart]
 // Imports the Google Cloud client library
-var Vision = require('@google-cloud/vision');
+var google = require('@google-cloud');
 
-// Your Google Cloud Platform project ID
-var projectId = 'vision-play-165021';
-
-// Instantiates a client
-var visionClient = Vision({
-  projectId: projectId,
+var vision = require('@google-cloud/vision')({
+  projectId: 'vision-play-165021',
   keyFilename: '/home/pi/keys/vision-play-40d1a084e616.json'
 });
+
+google.auth.getApplicationDefault(function(err, authClient) {
+   if (err) {
+     return cb(err);
+   }});
+
 
 // The name of the image file to annotate
 var fileName = './photos/test_truck.jpg';
 
 // Performs label detection on the image file
-visionClient.detectLabels(fileName)
+vision.detectLabels(fileName)
   .then(function (results) {
     var labels = results[0];
 
