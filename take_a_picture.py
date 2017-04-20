@@ -17,8 +17,6 @@ s3 = boto3.client('s3')
 from google.cloud import vision
 
 # Constants are here
-image_file = "./photos/latest.jpg"
-json_file = "./data/vision.json"
 GREEN_LED = 24
 RED_LED = 22
 BUTTON_GPIO_PIN = 23
@@ -37,6 +35,9 @@ def buttonEventHandler (pin):
     if (time_now - time_stamp) > 1:
     
         print "button pressed!"
+        
+        image_file = "./photos/latest.jpg"
+        json_file = "./data/vision.json"
 
         # turn the red LED on
         GPIO.output(RED_LED, GPIO.HIGH)
