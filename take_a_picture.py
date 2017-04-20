@@ -30,11 +30,13 @@ def buttonEventHandler (pin):
     global time_stamp
     time_now = time.time()
     
-    # see if this new press is at least 1 second since the last
+    # see if this new press is at least 1 seconds since the last
     # (aka debouncing)
     if (time_now - time_stamp) > 1:
     
         print "button pressed!"
+        
+        time_stamp = time_now
         
         image_file = "./photos/latest.jpg"
         json_file = "./data/vision.json"
