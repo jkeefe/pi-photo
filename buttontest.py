@@ -5,7 +5,8 @@
 import time
 import RPi.GPIO as GPIO
 
-LED_GPIO_PIN = 24
+GREEN_LED = 24
+RED_LED = 22
 BUTTON_GPIO_PIN = 23
 
 GPIO.cleanup()
@@ -14,13 +15,13 @@ GPIO.cleanup()
 def buttonEventHandler (pin):
     print "handling button event"
 
-    # turn the green LED on
-    GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
+    # turn the red LED on
+    GPIO.output(RED_LED, GPIO.HIGH)
 
-    time.sleep(15)
+    time.sleep(3)
 
-    # turn the green LED off
-    GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
+    # turn the red LED off
+    GPIO.output(RED_LED, GPIO.LOW)
 
 
 
@@ -32,24 +33,26 @@ def main():
     GPIO.setmode(GPIO.BCM)
 
     # setup pin 23 as an input
-    # and set up pins 24 and LED_GPIO_PIN as outputs
+    # and set up pins 24 and GREEN_LED as outputs
     GPIO.setup(BUTTON_GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(LED_GPIO_PIN, GPIO.OUT)
+    GPIO.setup(GREEN_LED, GPIO.OUT)
+    GPIO.setup(RED_LED, GPIO.OUT)
 
     # tell the GPIO library to look out for an 
     # event on pin BUTTON_GPIO_PIN and deal with it by calling 
     # the buttonEventHandler function
     GPIO.add_event_detect(BUTTON_GPIO_PIN, GPIO.BOTH, buttonEventHandler)
 
-    # turn off LED
-    GPIO.output(LED_GPIO_PIN, GPIO.LOW)
+    # turn off LEDs
+    GPIO.output(GREEN_LED, GPIO.LOW)
+    GPIO.output(RED_LED, GPIO.LOW)
 
-    # make the LED flash
+    # make the green LED flash to indicate all is well
     while True:
-        GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(LED_GPIO_PIN, GPIO.LOW)
-        time.sleep(1)
+        GPIO.output(GREEN_LED, GPIO.HIGH)
+        time.sleep(0.5)
+        GPIO.output(GREEN_LED, GPIO.LOW)
+        time.sleep(2)
 
     GPIO.cleanup()
 
