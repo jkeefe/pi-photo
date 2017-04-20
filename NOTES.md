@@ -40,6 +40,18 @@ while True:
            GPIO.output(12, False)
 ```
 
+Useful for interrupt-based work:
+https://medium.com/@rxseger/interrupt-driven-i-o-on-raspberry-pi-3-with-leds-and-pushbuttons-rising-falling-edge-detection-36c14e640fef
+
+Simpler:
+http://raspberrywebserver.com/gpio/using-interrupt-driven-gpio.html
+
+Pinout:
+https://az835927.vo.msecnd.net/sites/iot/Resources/images/PinMappings/RP2_Pinout.png
+
+
+
+
 ## Photo testing
 
 Basic instructions:
