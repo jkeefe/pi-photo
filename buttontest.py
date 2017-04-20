@@ -8,6 +8,7 @@ import RPi.GPIO as GPIO
 LED_GPIO_PIN = 24
 BUTTON_GPIO_PIN = 23
 
+GPIO.cleanup()
 
 # handle the button event
 def buttonEventHandler (pin):
