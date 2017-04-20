@@ -13,16 +13,22 @@ GPIO.cleanup()
 
 # handle the button event
 def buttonEventHandler (pin):
-    print "handling button event"
+    
+    global time_stamp
+    time_now = time.time()
+    
+    # see if this new press is at least 1 second since the last
+    if (time_now - time_stamp) > 1:
+    
+        print "handling button event"
 
-    # turn the red LED on
-    GPIO.output(RED_LED, GPIO.HIGH)
+        # turn the red LED on
+        GPIO.output(RED_LED, GPIO.HIGH)
 
-    time.sleep(3)
+        time.sleep(3)
 
-    # turn the red LED off
-    GPIO.output(RED_LED, GPIO.LOW)
-
+        # turn the red LED off
+        GPIO.output(RED_LED, GPIO.LOW)
 
 
 # main function
@@ -37,6 +43,9 @@ def main():
     GPIO.setup(BUTTON_GPIO_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(GREEN_LED, GPIO.OUT)
     GPIO.setup(RED_LED, GPIO.OUT)
+    
+    # setting up a variable for detecting bounces!
+    time_stamp = time.time()
 
     # tell the GPIO library to look out for an 
     # event on pin BUTTON_GPIO_PIN and deal with it by calling 
