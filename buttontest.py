@@ -16,7 +16,7 @@ def buttonEventHandler (pin):
     # turn the green LED on
     GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
 
-    time.sleep(1)
+    time.sleep(15)
 
     # turn the green LED off
     GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
@@ -45,6 +45,12 @@ def main():
 
     GPIO.cleanup()
 
+    # make the red LED flash
+    while True:
+        GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(LED_GPIO_PIN, GPIO.LOW)
+        time.sleep(1)
 
 
 if __name__=="__main__":
