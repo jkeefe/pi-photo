@@ -8,12 +8,11 @@ import RPi.GPIO as GPIO
 GREEN_LED = 24
 RED_LED = 22
 BUTTON_GPIO_PIN = 23
-global time_stamp
+time_stamp = 0
 
 # handle the button event
 def buttonEventHandler (pin):
     
-
     time_now = time.time()
     
     # see if this new press is at least 1 second since the last
@@ -29,6 +28,7 @@ def buttonEventHandler (pin):
         # turn the red LED off
         GPIO.output(RED_LED, GPIO.LOW)
 
+    time_stamp = time_now
 
 # main function
 def main():
