@@ -42,7 +42,7 @@ def main():
     GPIO.add_event_detect(BUTTON_GPIO_PIN, GPIO.BOTH, buttonEventHandler)
 
     # turn off LED
-    GPIO.output(LED_GPIO_PIN, LOW)
+    GPIO.output(LED_GPIO_PIN, GPIO.LOW)
 
     # make the LED flash
     while True:
