@@ -2,7 +2,7 @@
 
 # To make the program run at bootup, you need to edit /etc/rc.local. 
 # At the end of the file you would add a line like the following:
-#    `python /home/pi/myTakePicture.py &`
+#    `python /home/pi/pi-photo/take_a_picture.py &`
 # Don't forget the ampersand! This program contains an infinite loop
 # while it waits for the GPIO high and the ampersand ensures that /etc/rc.local 
 # is running your python script in the background which will 
@@ -49,27 +49,27 @@ def buttonEventHandler (pin):
         
         time_stamp = time_now
         
-        image_file = "./photos/latest.jpg"
-        json_file = "./data/vision.json"
+        image_file_name = "/home/pi/pi-photo/photos/latest.jpg"
+        json_file = "/home/pi/pi-photo/data/vision.json"
 
         # turn the red LED on
         GPIO.output(RED_LED, GPIO.HIGH)
 
         # take a picture
         print "taking a picture"
-        os.system("raspistill -t 500 -w 1000 -h 1000 -e jpg -q 100 -hf -o " + image_file)
+        os.system("raspistill -t 500 -w 1000 -h 1000 -e jpg -q 100 -hf -o " + image_file_name)
         print "picture taken"
 
         # Instantiates a Google Vision API client
         vision_client = vision.Client()
 
         # The name of the image file to analyze
-        file_name = os.path.join(
-            os.path.dirname(__file__),
-            image_file)
+        # file_name = os.path.join(
+        #     os.path.dirname(__file__),
+        #     image_file)
 
         # Loads the image into memory
-        with io.open(file_name, 'rb') as image_file:
+        with io.open(image_file_name, 'rb') as image_file:
             content = image_file.read()
             image = vision_client.image(
                 content=content)
