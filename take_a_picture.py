@@ -45,7 +45,7 @@ def buttonEventHandler (pin):
     # see if this new press is at least 1 seconds since the last button push
     if (time_now - time_stamp) > 1:
     
-        print "button pressed!"
+        print ("button pressed!")
         
         time_stamp = time_now
         
@@ -56,14 +56,14 @@ def buttonEventHandler (pin):
         GPIO.output(RED_LED, GPIO.HIGH)
 
         # take a picture
-        print "taking a picture"
+        print ("taking a picture")
         os.system("raspistill -t 500 -w 1000 -h 1000 -e jpg -q 100 -hf -o " + image_file_name)
-        print "picture taken"
+        print ("picture taken")
 
         # Instantiates a Google Vision API client
         vision_client = vision.Client()
 
-        print "ready to send to google"
+        print ("ready to send to google")
 
         # The name of the image file to analyze
         # file_name = os.path.join(
@@ -77,7 +77,7 @@ def buttonEventHandler (pin):
                 content=content)
 
         # Performs label detection on the image file
-        print "Sending to Google Vision API"
+        print ("Sending to Google Vision API")
         labels = image.detect_labels()
         label_list = []
 
