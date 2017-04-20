@@ -1,5 +1,13 @@
 #!/usr/bin/env python
 
+# To make the program run at bootup, you need to edit /etc/rc.local. 
+# At the end of the file you would add a line like the following:
+#    `python /home/pi/myTakePicture.py &`
+# Don't forget the ampersand! This program contains an infinite loop
+# while it waits for the GPIO high and the ampersand ensures that /etc/rc.local 
+# is running your python script in the background which will 
+# allow you to login and debug if necessary.
+
 from __future__ import absolute_import
 
 import time

@@ -177,6 +177,11 @@ Needs to have an internet connection on startup to set it.
 
 
 
+## Backing up the pi
+
+Before I set it into auto-boot mode, I made a copy of my SD card using thse instructions:
+https://smittytone.wordpress.com/2013/09/06/back-up-a-raspberry-pi-sd-card-using-a-mac/
+
 
 
 
