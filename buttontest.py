@@ -13,6 +13,7 @@ time_stamp = 0
 # handle the button event
 def buttonEventHandler (pin):
     
+    global time_stamp
     time_now = time.time()
     
     # see if this new press is at least 1 second since the last
