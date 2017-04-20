@@ -44,7 +44,7 @@ def buttonEventHandler (pin):
 
         # take a picture
         print "taking a picture"
-        os.system("raspistill -t 500 -hf -o " + image_file)
+        os.system("raspistill -t 500 -w 1000 -h 1000 -e jpg -q 100 -hf -o " + image_file)
         print "picture taken"
 
         # Instantiates a Google Vision API client
