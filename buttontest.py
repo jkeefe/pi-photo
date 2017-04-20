@@ -38,7 +38,7 @@ def main():
     # tell the GPIO library to look out for an 
     # event on pin BUTTON_GPIO_PIN and deal with it by calling 
     # the buttonEventHandler function
-    GPIO.add_event_detect(BUTTON_GPIO_PIN, GPIO.FALLING, buttonEventHandler)
+    GPIO.add_event_detect(BUTTON_GPIO_PIN, GPIO.BOTH, buttonEventHandler)
 
     # turn off LED
     GPIO.output(LED_GPIO_PIN,False)
