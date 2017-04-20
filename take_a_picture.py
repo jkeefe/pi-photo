@@ -23,15 +23,18 @@ BUTTON_GPIO_PIN = 23
 
 # Global variable here
 time_stamp = 0
+last_time_taken = 0
+
 
 # handle what happens when button is pushed
 def buttonEventHandler (pin):
     
     global time_stamp
+    global last_time_taken
+    
     time_now = time.time()
     
-    # see if this new press is at least 1 seconds since the last
-    # (aka debouncing)
+    # see if this new press is at least 1 seconds since the last button push
     if (time_now - time_stamp) > 1:
     
         print "button pressed!"
@@ -91,7 +94,7 @@ def buttonEventHandler (pin):
         # turn the red LED off
         GPIO.output(RED_LED, GPIO.LOW)
 
-    time_stamp = time_now
+    time_stamp = time.time()
 
 # main function
 def main():
