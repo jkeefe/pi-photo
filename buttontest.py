@@ -43,8 +43,6 @@ def main():
     # turn off LED
     GPIO.output(LED_GPIO_PIN,False)
 
-    GPIO.cleanup()
-
     # make the red LED flash
     while True:
         GPIO.output(LED_GPIO_PIN, GPIO.HIGH)
@@ -52,6 +50,7 @@ def main():
         GPIO.output(LED_GPIO_PIN, GPIO.LOW)
         time.sleep(1)
 
+    GPIO.cleanup()
 
 if __name__=="__main__":
     main()
