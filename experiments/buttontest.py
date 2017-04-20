@@ -19,7 +19,7 @@ def buttonEventHandler (pin):
     # see if this new press is at least 1 second since the last
     if (time_now - time_stamp) > 1:
     
-        print "handling button event"
+        print "button pressed!"
 
         # turn the red LED on
         GPIO.output(RED_LED, GPIO.HIGH)
