@@ -11,6 +11,13 @@ To make the program run at bootup, you need to edit /etc/rc.local. At the end of
 
 Don't forget the ampersand! Your program will most likely contain an infinite loop while it waits for the GPIO high and the ampersand ensures that /etc/rc.local is running your python script in the background which will allow you to login and debug if necessary.
 
+Actually ... turns out it's a little more complicated. The command I put into `/etc/rc.local` is:
+
+`sudo -H -u pi /usr/bin/python /home/pi/pi-photo/take_a_picture.py`
+
+This forces the script to run as the "pi" default user (so it has all the Google and AWS permissions) and also uses full file paths to make sure there is no confusion.
+
+
 ## On pushbutton
 
 by Odog1996 » Fri Aug 02, 2013 9:24 pm

@@ -59,6 +59,11 @@ def buttonEventHandler (pin):
         print ("taking a picture")
         os.system("raspistill -t 500 -w 1000 -h 1000 -e jpg -q 100 -hf -o " + image_file_name)
         print ("picture taken")
+        
+        # quickly flash the RED LED to acknowledge the picture has been taken
+        GPIO.output(RED_LED, GPIO.LOW)
+        time.sleep(0.3)
+        GPIO.output(RED_LED, GPIO.HIGH)
 
         # Instantiates a Google Vision API client
         vision_client = vision.Client()
