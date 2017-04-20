@@ -63,6 +63,8 @@ def buttonEventHandler (pin):
         # Instantiates a Google Vision API client
         vision_client = vision.Client()
 
+        print "ready to send to google"
+
         # The name of the image file to analyze
         # file_name = os.path.join(
         #     os.path.dirname(__file__),
