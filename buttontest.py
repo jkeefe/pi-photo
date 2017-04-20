@@ -8,13 +8,12 @@ import RPi.GPIO as GPIO
 GREEN_LED = 24
 RED_LED = 22
 BUTTON_GPIO_PIN = 23
-
-GPIO.cleanup()
+global time_stamp
 
 # handle the button event
 def buttonEventHandler (pin):
     
-    global time_stamp
+
     time_now = time.time()
     
     # see if this new press is at least 1 second since the last
@@ -62,8 +61,6 @@ def main():
         time.sleep(0.5)
         GPIO.output(GREEN_LED, GPIO.LOW)
         time.sleep(2)
-
-    GPIO.cleanup()
 
 if __name__=="__main__":
     main()
